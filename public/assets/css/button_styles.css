@@ -1,0 +1,39 @@
+.btn-circle {
+  display:block;
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+  border: 1px solid blue;
+  
+}
+
+
+.btn-circle-icon {
+ display:block;
+ height: 200px;
+ width: 200px;
+ border-radius:50%;
+ border: 1px solid blue;
+}
+
+.btn-square {
+  display:block;
+  height: 250px;
+  width: 300px;
+  border: 1px solid blue;
+  
+}
+
+.btn-noStyle {
+  background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+
+}
+
+.big-icon{
+font-size: 32px;
+}

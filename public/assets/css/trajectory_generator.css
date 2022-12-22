@@ -1,0 +1,40 @@
+/*#velocity_input_rhip1 {
+    
+    transform: rotate(270deg);
+    scroll-behavior: smooth;
+    height: 90px;
+    width: 100px;
+    float:left
+    
+}
+#rhip_max1{
+    float:left;
+    padding-left: 50px;
+}
+#velocity_input_rhip2 {
+    
+    transform: rotate(270deg);
+    scroll-behavior: smooth;
+    height: 90px;
+    width: 100px;
+
+}
+#rhip_min1{
+    float:left;
+    padding-left: 130px;
+}
+#velocity_input_rhip3 {
+    
+    transform: rotate(270deg);
+    scroll-behavior: smooth;
+    height: 90px;
+    width: 100px;
+    
+}
+#rhip_max2{
+    float:left;
+    padding-left: 40px;
+}
+
+
+  

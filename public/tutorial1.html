@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SWalker</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/google-fonts-nunito.css">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/google-fonts-montserrat.css">
+    <link rel="stylesheet" href="assets/css/cloudflareAjaxBaguetteboxbaguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+  
+    <!--JQUERY-->
+    <script src="assets/js/jquery-321.min.js"></script>
+    <script
+    src="assets/js/jquery-3-4-1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>      
+
+    <link href="assets/css/jquery.dataTables.min.css">
+    <link href="assets/css/buttons.dataTables.min.css">
+
+    <!--   --> 
+    
+    
+    <style type="text/css">
+        td.details-control {
+            cursor: pointer;
+        }
+    </style>
+
+
+    <script src="assets/js/jquery-3.5.1.js"></script>
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/dataTables.buttons.min.js"></script>
+    <script src="assets/js/buttons.flash.min.js"></script>
+    <script src="assets/js/jszip313.min.js"></script>
+    <script src="assets/js/pdfmake.min.js"></script>
+    <script src="assets/js/vfs_fonts.js"></script>
+    <script src="assets/js/buttons.html5.min.js"></script>
+    <script src="assets/js/buttons.print.min.js"></script>
+    <script src="assets/js/cdnJsdelivrNpmMoment@2240MinMoment.min.js"></script>
+
+    <script src="assets/js/v5.15.1jsall.js" data-auto-replace-svg></script>
+    <script src="assets/js/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      
+      <script src="assets/js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      
+      <!-- Los iconos tipo Solid de Fontawesome-->
+      <link rel="stylesheet"
+          href="assets/css/v508csssolid.css">
+      <script src="assets/js/v5.0.7jsall.js"></script>
+      <script src="socket.io/socket.io.js"></script>
+      <script src="users.js"></script>
+      
+      
+      <!-- DATA TABLE -->
+      <script src="assets/js/1-10-19jquery.dataTables.min.js"></script>
+      <script src="assets/js/1.10.19dataTables.bootstrap4.min.js"></script>
+      <link rel="stylesheet" href="assets/css/twitter-bootstrap4.1.1cssbootstrap.css">	
+      <link rel="stylesheet" href="assets/css/1.10.19cssdataTables.bootstrap4.min.css">
+
+
+      <link rel="stylesheet" href="assets/css/4.5.2cssbootstrap.min.css">
+     
+      <script src="assets/js/1.16.0umdpopper.min.js"></script>
+      <script src="assets/js/bootstrap4.5.2jsbootstrap.min.js"></script>
+
+
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <img class="img" style= "height:250%" src="assets/img/SWALKER-logo2.png">
+                    <div class="sidebar-brand-text mx-3"><span>SWalker</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html" style="display:none;"><i class="fas fa-arrow-left"></i><span> Página de inicio</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="patients.html"><i class="fas fa-child"></i><span> Pacientes </u></span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="therapy_menu.html"><i class="fas fa-clinic-medical"></i><span> Terapia </span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="tutorials.html"><i class="fas fa-book-open"></i><span> <u> Tutoriales </u></span></a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-info"></i><span> Ayuda </span></a></li>
+
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand shadow mb-4 topbar static-top" style="background-color: #4e73df;">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        </form>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow" role="presentation">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><img class="img" src="assets/img/letras.png" style= "height:80%"><img class="img" src="assets/img/logoblanco.png" style= "height:80%"></a>
+                                    <!--<div
+                                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                        <a
+                                            class="dropdown-item" role="presentation" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
+                                -->
+                                </div>
+                            </li>
+                        </ul>
+                     </div>
+                </nav>
+            <div class="container-fluid">
+                <main class="page contact-us-page">
+                    <section class="clean-block clean-form dark">
+                        <div class="container-fluid">
+                            <div class="block-heading">
+                               <!-- <h2 class="text-info">Patient Sessions</h2>
+                                <p>Enter patient data</p> -->
+                            </div>
+                            <div style ="text-align: center; ">
+                            
+                            <!-- --------------ESTO YA ES LO QUE APARECE EN EL RECUADRO BLANCO------------------ -->
+                            <!--
+                            <ul class="nav nav-pills centered"><li class="nav-item"><a class="nav-link active" href="tutorial1.html" style="background-color:#4e73df;"><i class="fas fa-book-open"></i><span><u> Precauciones y comprobaciones </u></span></a></li></ul>
+                            <br /><ul class="nav nav-pills centered"><li class="nav-item"><a class="nav-link active" href="tutorial2.html" style="background-color:#4e73df;"><i class="fas fa-book-open"></i><span> Preparación del sistema y colocación del nuevo usuario </span></a></li></ul>
+                            <br /><ul class="nav nav-pills centered"><li class="nav-item"><a class="nav-link active" href="tutorial3.html" style="background-color:#4e73df;"><i class="fas fa-book-open"></i><span> Conexión y manejo de la web </span></a></li></ul><br/>
+                            -->
+                            <div id="toolbar" style="text-align: center;">
+                                <button id="tutorial1" type="button" class="btn btn-outline-primary active" style="height: 200px; width: 200px; margin: 50px; border: solid 5px; border-radius: 15%; text-align: center;" onclick="redirectTutorial1()"><i class="fas fa-book-open" style="font-size:60px;"></i> <br/><br/>Precauciones <br/>y <br/>comprobaciones</button>
+                                <script type="text/javascript">
+                                    function redirectTutorial1(){
+                                        window.location.href="tutorial1.html";
+                                    }
+                                </script>
+                                <button id="tutorial2" type="button" class="btn btn-outline-primary"  style="height: 200px; width: 200px; margin: 50px; border: solid 5px; border-radius: 15%; text-align: center;" onclick="redirectTutorial2()"><i class="fas fa-book-open" style="font-size:60px;"></i> <br/><br/>Preparación del sistema <br/>y <br/>colocación del usuario</button> 
+                                <script type="text/javascript">
+                                    function redirectTutorial2(){
+                                        window.location.href="tutorial2.html";
+                                    }
+                                </script>
+                                <button id="tutorial3" type="button" class="btn btn-outline-primary"  style="height: 200px; width: 200px; margin: 50px; border: solid 5px; border-radius: 15%; text-align: center;" onclick="redirectTutorial3()"><i class="fas fa-book-open" style="font-size:60px;"></i> <br/><br/>Conexión <br/>y <br/>manejo de la web</button> 
+                                <script type="text/javascript">
+                                    function redirectTutorial3(){
+                                        window.location.href="tutorial3.html";
+                                    }
+                                </script>
+                            </div>
+                            <br /><center> 
+                            <img class= "img" src="assets/img/Precauciones_y_comprobaciones.png">
+							</center>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © SWalker 2021</span></div>
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="assets/js/cdnjscloudflareAjaxLibsChartjs280Chart.bundle.min.js"></script>
+
+</body>
+
+</html>

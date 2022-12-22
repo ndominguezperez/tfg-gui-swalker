@@ -1,0 +1,26 @@
+{
+  "name": "bootstrap_base_interface",
+  "version": "1.0.0",
+  "private": "true",
+  "description": "Interface of the CPWalker Platform",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluetooth-classic-serialport-client": "^0.1.25",
+    "chart.js": "^2.9.4",
+    "exceljs": "^4.2.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "node-ble": "^1.7.0",
+    "socket.io": "^3.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

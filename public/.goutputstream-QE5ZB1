@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SWalker</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/google-fonts-nunito.css">
+    <link rel="stylesheet" href="assets/css/fontawesomeall512.css">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/google-fonts-montserrat.css">
+    <link rel="stylesheet" href="assets/css/cloudflareAjaxBaguetteboxbaguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+    <link rel="stylesheet" href="assets/css/stackpathBootstrapcdnBootstrap450Bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/move_arrows.css">
+
+    <!-- Import Audio -->
+    <audio id="atleti_audio" src="assets/audio/atleti_madrid_sabina.mp3"></audio>
+    <audio id="madrid_audio" src="assets/audio/real_madrid.mp3"></audio>
+    <audio id="barcelona_audio" src="assets/audio/barcelona.mp3"></audio>
+
+    <!-- Solid Fontawesome icons-->
+    <script src="assets/js/v5.15.1jsall.js" data-auto-replace-svg></script>
+    <link rel="stylesheet" href="assets/css/v508csssolid.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+            <!-- Start Modal if click to change to other page  -->
+        <div id="modal-change-page" class="modal fade" role = "dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container card shadow-lg o-hidden border-0 my-5 p-5">
+                            <div class="text-center">
+                                <h3 class="text-dark mb-4">If you change the page the therapy will stop.</h3>
+                            </div>
+                            <div class="text-center">
+                                <button id="continue-therapy" style = "background-color: hsla(120, 100%, 25%, 0.8);" class="btn btn-primary"> Continue therapy</button>
+                                <button id="stop-exit-therapy" style = "background-color: hsla(0, 100%, 50%, 0.8);" class= "btn btn-primary"> Stop therapy and exit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Music modal -->
+        <div id="modal-music" class="modal fade" role = "dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container card shadow-lg o-hidden border-0 my-10 p-10">
+                            <div class="text-center">
+                                <h3 class="text-dark mb-4"> Menu posture control:</h3>
+                                <div>
+                                    <h5 class="text-dark mb-4"> Select rival socket team:</h5>
+                                    <select class="btn  btn-primary" id="rival_soccer" class="form-control">
+                                        <option selected value="madrid_audio">Real Madrid</option>
+                                        <option value="atleti_audio">Atletico de Madrid (Sabina) </option>
+                                        <option value="barcelona_audio">Barcelona</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <button class="btn btn-secondary" id="music" data-playing="false" role="switch" aria-checked="false">
+                                    <span>Enable/Disable</span>
+                                </button>
+                            </div>
+                            <br>
+                            <div class="mb-3 d-flex centered" >
+                                <p class="btn btn-primary " type="submit" style = "background: #24cf71;"> Head orientation: </p>
+                                <p class="btn btn-primary " value="0" id="head_roll" type="submit" style = "background: #24cf71;"> Roll: </p>
+                                <p class="btn btn-primary " value="0" id="head_pitch" type="submit" style = "background: #24cf71;"> Pitch: </p>
+                                <p class="btn btn-primary " value="0" id="head_yaw" type="submit" style = "background: #24cf71;"> Yaw: </p>
+                            </div>
+                            <div class="mb-3 d-flex centered" >
+                                <p class="btn btn-primary " type="submit" style = "background: #24cf71;"> Torso orientation: </p>
+                                <p class="btn btn-primary " value="0" id="torso_roll" type="submit" style = "background: #24cf71;"> Roll: </p>
+                                <p class="btn btn-primary " value="0" id="torso_pitch" type="submit" style = "background: #24cf71;"> Pitch: </p>
+                                <p class="btn btn-primary " value="0" id="torso_yaw" type="submit" style = "background: #24cf71;"> Yaw: </p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Error adquisicon datos  -->
+        <div id="modal-error" class="modal fade" role = "dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container card shadow-lg o-hidden border-0 my-5 p-5">
+                            <div class="text-center">
+                                <h3 id ="text_error" class="text-dark mb-4">Error in exoskeleton movement, please reboot exo.</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <img class="img" style= "height:250%" src="assets/img/logocpw.png">
+                    <div class="sidebar-brand-text mx-3"><span>S-Walker</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a id="indexHTML" href="javascript:void(0)" class="nav-link active"><i class="fas fa-house-user"></i><span> Home</span></a></li>
+                    <li class="nav-item" role="presentation"><a id="usersHTML" href="javascript:void(0)" class="nav-link active"><i class="fas fa-child"></i><span> Users</span></a></li>
+                    <!--<li class="nav-item" role="presentation"><a id="moveHTML" href="javascript:void(0)"  class="nav-link active"><i class="fas fa-arrows-alt"></i><span> Move</span></a></li>
+                    -->
+                    <li class="nav-item" role="presentation"><a id="therapySettingsHTML" href="javascript:void(0)" class="nav-link active"><i class="fas fa-clinic-medical"></i><span> Therapy</span></a></li>
+                   <!-- <li class="nav-item" role="presentation"><a id="fesHTML" href="javascript:void(0)" class="nav-link active" href="fes.html"><i class="fas fa-bolt"></i><span> FES</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="trajectory_generator.html"><i class="fas fa-code-branch"></i><span> Trajectory generator</span></a></li>
+                -->
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand shadow mb-4 topbar static-top" style="background-color: #4e73df;">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        </form>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">                            
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow" role="presentation">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><img class="img" src="assets/img/letras.png" style= "height:90%"><img class="img" src="assets/img/logoblanco.png" style= "height:80%"></a>
+                                    <div
+                                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                        <a
+                                            class="dropdown-item" role="presentation" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                     </div>
+                </nav>
+            <div class="container-fluid">
+                <div class="mb-3 d-flex justify-content-between " >
+                    <h3 class="text-dark mb-4">&nbsp;Therapy Monitor</h3>
+                </div>
+                <div class="mb-3 d-flex centered" >
+                    <button class="btn btn-primary btn-xl" value="start_calibration" id="start_stop" type="submit" style = "background: #0968e4">START CALIBRATION</button>
+                </div>
+                <div class="mb-3 d-flex centered" >
+                    <button class="btn btn-primary " value= "start_position" id="save_data" type="submit" style = "background: #fd4e4e; border-color: #fd4e4e; display: none">Save Data</button>
+                    <button style="margin:5px; background: #808080; border-color: #0968e4" class="btn btn-primary " value="off" id="connect_swalker" type="submit"> Connect SWalker </button>
+                    <button class="btn btn-primary " value="off" id="enable_emg" type="submit" style = "margin:5px; background: #808080; border-color: #0968e402"> Connect EMG </button>
+                    <button class="btn btn-primary " value="off" id="enable_imus" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4"> Enable IMU(s) </button>
+                        <!--<button class="btn btn-primary " value="off" id="calibrate_emg" type="submit" style = "margin:5px; background:#67B7D1; border-color: #0968e4"> Calibrate EMG </button>
+                     <button class="btn btn-primary " value="off" id="enable_vr" type="submit" style = "margin:5px; background: #bababa; border-color: #bababa"> Enable VR </button>
+                     -->   
+                </div>
+                <div class="mb-3 d-flex centered">
+                    <button class="btn btn-primary " value="off" id="connect_imu1" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display: none"> Connect IMU 1 </button>
+                    <button class="btn btn-primary " value="off" id="connect_imu2" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display: none"> Connect IMU 2 </button>
+                </div>
+                
+                <!-- Joint Charts-->
+                <div class="container-fluid" >
+                    <form class="user text-center">
+                        <div class="form-group" id="steps_form">
+                            <label>
+                                <strong>Supported Weight (%)</strong>
+                            </label>
+                            <div class="mb-3 d-flex centered" >
+                                <button class="btn btn-outline-secondary" type="button" id="supported_weight" value = "10"> 0.00 </button>
+                            </div>
+                        </div>
+                    </form>
+                    <form class="user text-center">
+                        <div class="form-group" id="steps_form">
+                            <label>
+                                <strong> Steps </strong>
+                            </label>
+                            <div class="mb-3 d-flex centered" >
+                                <button class="btn btn-outline-secondary" type="button" id="current_steps"> 0 </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id = "jointCharts" class="card shadow mb-4">
+                    <div class="container-fluid">
+                        <br>
+                        <div class="row mb-3">
+                            <div class="col-lg-6">
+                                <div class="card mb-3">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="text-primary font-weight-bold m-0" style = "width:100%; text-align: center;">Left Hip</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-area">
+                                            <div id = "LeftHip">
+                                                <canvas id="l_hip_chart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card mb-3">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="text-primary font-weight-bold m-0" style = "width:100%; text-align: center;">Right Hip</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-area">
+                                            <div id = "rightLeftHip">
+                                                <canvas id="r_hip_chart"></canvas> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-lg-6">
+                                <div class="card mb-3">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="text-primary font-weight-bold m-0" style = "width:100%; text-align: center;">[EMG] Left Leg </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-area">
+                                            <div id = "leftKnee">
+                                                <canvas id="l_knee_chart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card mb-3">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="text-primary font-weight-bold m-0" style = "width:100%; text-align: center;" >[EMG] Right Leg</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-area">
+                                            <div id = "rightLeftKnee">
+                                                <canvas id="r_knee_chart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> 
+                </div>
+       
+                <!-- TABS PARA LA NEVEGACION DE LAS DIFERENTES TABLAS-->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="emg_tab" data-toggle="tab" href="#emg" role="tab" aria-controls="emg" aria-selected="true"> <h3> Move the platform </h3></a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="settings_tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false"> <h3> Therapy Settings </h3></a>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="emg" role="tabpanel" aria-labelledby="emg_tabs">
+                        <div class="container-fluid">
+                            <div >
+                                <br>
+                            </div>
+                            <div class="row" style="display: flex; justify-content: space-around">
+                                <!--
+                                <div class="col-lg-6 col-xl-4">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <div class="chart-area">
+                                                <label for="velocity">
+                                                    <h3>
+                                                        Select Speed:          
+                                                    </h3>
+                                                    <br>
+                                                    <br>
+                                                    <div class = "speed_background">
+                                                        <h3  class="btn btn-outline-secondary" id="speed_ms">
+                                                        0.068 (m/s)
+                                                        </h3>
+                                                        <br>
+                                                        <select class="btn  btn-primary" id="speed_config" onchange="getvalue(this)" class="form-control">
+                                                            <option selected value="slow">Slow</option>
+                                                            <option value="normal">Normal</option>
+                                                            <option value="fast">Fast</option>
+                                                        </select> 
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                -->
+                                <div class="col-lg-6 col-xl-8">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <div class="chart-area">
+                                                <h3>
+                                                    Select Direction:          
+                                                </h3>
+                                                <h3  class="btn btn-secondary" id="direction_html">
+                                                    Stop
+                                                </h3>
+                                                <div class="move_left icon">
+                                                    <div id="move_left" class="arrow arrow_left"></div>
+                                                </div>
+                                                <div class="move_fordward icon">
+                                                    <div id="move_fordward" class="arrow arrow_fordward"></div>
+                                                </div>
+                                                <div class="move_backwards icon">
+                                                    <div id="move_backwards" class="arrow arrow_backwards"></div>
+                                                </div>
+                                                <div class="move_right icon">
+                                                    <div id="move_right" class="arrow arrow_right"></div>
+                                                </div>
+                                                <div class="stop icon">
+                                                    <div id="move_stop" class="circle">
+                                                        <div id="stop_id" class="rectangle" class></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 
+                                <div class="col-lg-6 col-xl-10">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <div class="chart-area">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <div class="move_left icon">
+                                                            <div id="move_left" class="arrow arrow_left"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="row">
+                                                            <div class="move_fordward icon">
+                                                                <div id="move_fordward" class="arrow arrow_fordward"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="move_backwards icon">
+                                                                <div id="move_backwards" class="arrow arrow_backwards"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="move_right icon">
+                                                            <div id="move_right" class="arrow arrow_right"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                -->
+                            </div>
+                            <script src="socket.io/socket.io.js"></script>
+                            <script src="move.js"></script>
+                        </div>
+                    </div>
+                    <div class="tab-content fade" id="settings" role="tabpanel" aria-labelledby="settings_tab">
+                        <div class="row">   
+                            <!-- Therapy settings information -->
+                            <div class="col">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 style = "width:100%; text-align: center;" class="text-primary font-weight-bold m-0">Therapy Sethings</h5>
+                                    </div>
+                                    <div  class="card-body">
+                                        <table style = "width:100%; text-align: center;" class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" colspan="2" style=" text-align: center;">Patient</th>
+                                                    <th scope="col">Leg Lenght (cm)</th>
+                                                    <th scope="col">Weight (kg)</th>
+                                                </tr>
+                                            </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" style=" text-align: center;"><p id='patient'> - </p></td>
+                                                        <td><p id='LegLength'> - </p></td>
+                                                        <td><p id='Weight'> - </p></td>
+                                                    </tr>
+                                                </tbody>
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2" style=" text-align: center;" scope="col">Gait Velocity Km/h</th>
+                                                    <th scope="col">ROM (%)</th>
+                                                    <th colspan="2" scope="col">Steps</th>
+                                                </tr>
+                                            </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" style=" text-align: center;"><p id='gait_velocity'> - </p></td>
+                                                        <td><p id='ROM'> - </p></td>
+                                                        <td colspan="2" style=" text-align: center;"><p id='steps'> - </p></td>
+                                                    </tr>
+                                                </tbody>
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2" scope="col">Cycle segmentation (0-100%)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>          
+                                                    <th colspan="2" scope="col"> <button class="btn btn-primary " value="segmented" id="cycle_segmentation" type="submit" style = "background: #0968e4; border-color: #808080;">Segmented</button> </th>              
+                                                </tr>
+                                            </tbody>
+                                            </thead>
+                                           <!-- <thead>
+                                                <tr>
+                                                <th scope="col">Left Hip Control</th>
+                                                <th scope="col">Right Hip Control</th>
+                                                <th scope="col">Left Knee Control</th>
+                                                <th scope="col">Right Knee Control</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>                                        
+                                                    <td><p id='left_hip_config'> - </p></td>
+                                                    <td><p id='right_hip_config'> - </p></td>
+                                                    <td><p id='left_knee_config'> - </p></td>
+                                                    <td><p id='right_knee_config'> - </p></td>
+                                                </tr>
+                                            </tbody>
+                                            </thead> -->
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>               
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- End: Charts -->
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © Brand 2020</span></div>
+                </div>
+            </footer>
+        </div>
+        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="therapy_monitoring.js"></script>
+    
+    <script src="assets/js/cdnjsCloudflareAjaxLibsJquery341Jquery.min.js"></script>
+    <script src="assets/js/cdnjsCloudflareAjaxLibsTwitter-bootstrap441Bootstrap.bundle.min.js"></script>
+    <script src="assets/js/cdnjscloudflareAjaxLibsChartjs280Chart.bundle.min.js"></script>
+    <script src="assets/js/cdnjsCloudflareAjaxLibsJquery-easing141Jquery.easing.js"></script>
+    <script src="assets/js/script.min.js?h=cda46db5f8853791105ff4715b7208f3"></script>
+    <script src="assets/js/cdnJsdelivrNpmMoment@2240MinMoment.min.js"></script>
+    <script src="assets/js/cdnJsdelivrNpmChart.js"></script>
+    <script src="assets/js/cdnJsdelivrNpmChartjs-plugin-streaming@180.js"></script>
+
+    <script type="text/javascript" src="assets/js/cdnjsCloudflareAjaxlibsChartjs272Chart.bundle.js"></script>
+
+</body>
+
+</html>

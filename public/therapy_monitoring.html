@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SWalker</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/google-fonts-nunito.css">
+    <link rel="stylesheet" href="assets/css/fontawesomeall512.css">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/google-fonts-montserrat.css">
+    <link rel="stylesheet" href="assets/css/cloudflareAjaxBaguetteboxbaguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+    <link rel="stylesheet" href="assets/css/stackpathBootstrapcdnBootstrap450Bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/move_arrows.css">
+
+    <!-- Import Audio -->
+    <audio id="atleti_audio" src="assets/audio/atleti_madrid_sabina.mp3"></audio>
+    <audio id="madrid_audio" src="assets/audio/real_madrid.mp3"></audio>
+    <audio id="barcelona_audio" src="assets/audio/barcelona.mp3"></audio>
+
+    <!-- Solid Fontawesome icons-->
+    <script src="assets/js/v5.15.1jsall.js" data-auto-replace-svg></script>
+    <link rel="stylesheet" href="assets/css/v508csssolid.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+            <!-- Start Modal if click to change to other page  -->
+        <div id="modal-change-page" class="modal fade" role = "dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container card shadow-lg o-hidden border-0 my-5 p-5">
+                            <div class="text-center">
+                                <h3 class="text-dark mb-4">La terapia va a finalizar si cambias de página...</h3>
+                            </div>
+                            <div class="text-center">
+                                <button id="continue-therapy" style = "background-color: hsla(120, 100%, 25%, 0.8);" class="btn btn-primary"> Continuar con la terapia </button>
+                                <button id="stop-exit-therapy" style = "background-color: hsla(0, 100%, 50%, 0.8);" class= "btn btn-primary"> Finalizar terapia y salir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Music modal -->
+        <div id="modal-music" class="modal fade" role = "dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container card shadow-lg o-hidden border-0 my-10 p-10">
+                            <div class="text-center">
+                                <h3 class="text-dark mb-4"> Menu posture control:</h3>
+                                <div>
+                                    <h5 class="text-dark mb-4"> Select rival socket team:</h5>
+                                    <select class="btn  btn-primary" id="rival_soccer" class="form-control">
+                                        <option selected value="madrid_audio">Real Madrid</option>
+                                        <option value="atleti_audio">Atletico de Madrid (Sabina) </option>
+                                        <option value="barcelona_audio">Barcelona</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <button class="btn btn-secondary" id="music" data-playing="false" role="switch" aria-checked="false">
+                                    <span>Enable/Disable</span>
+                                </button>
+                            </div>
+                            <br>
+                            <div class="mb-3 d-flex centered" >
+                                <p class="btn btn-primary " type="submit" style = "background: #24cf71;"> Head orientation: </p>
+                                <p class="btn btn-primary " value="0" id="head_roll" type="submit" style = "background: #24cf71;"> Roll: </p>
+                                <p class="btn btn-primary " value="0" id="head_pitch" type="submit" style = "background: #24cf71;"> Pitch: </p>
+                                <p class="btn btn-primary " value="0" id="head_yaw" type="submit" style = "background: #24cf71;"> Yaw: </p>
+                            </div>
+                            <div class="mb-3 d-flex centered" >
+                                <p class="btn btn-primary " type="submit" style = "background: #24cf71;"> Torso orientation: </p>
+                                <p class="btn btn-primary " value="0" id="torso_roll" type="submit" style = "background: #24cf71;"> Roll: </p>
+                                <p class="btn btn-primary " value="0" id="torso_pitch" type="submit" style = "background: #24cf71;"> Pitch: </p>
+                                <p class="btn btn-primary " value="0" id="torso_yaw" type="submit" style = "background: #24cf71;"> Yaw: </p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Start Error adquisicon datos  -->
+        <div id="modal-error" class="modal fade" role = "dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="container card shadow-lg o-hidden border-0 my-5 p-5">
+                            <div class="text-center">
+                                <h3 id ="text_error" class="text-dark mb-4">Error in exoskeleton movement, please reboot exo.</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <img class="img" style= "height:250%" src="assets/img/SWALKER-logo2.png">
+                    <div class="sidebar-brand-text mx-3"><span>SWalker</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a id="indexHTML" href="javascript:void(0)" class="nav-link active" style="display:none;"><i class="fas fa-arrow-left"></i><span> Página de inicio</span></a></li>
+                    <li class="nav-item" role="presentation"><a id="usersHTML" href="javascript:void(0)" class="nav-link active"><i class="fas fa-child"></i><span> Pacientes </span></a></li>
+                    <li class="nav-item" role="presentation"><a id="therapySettingsHTML" href="javascript:void(0)" class="nav-link active"><i class="fas fa-clinic-medical"></i><span> <u> Terapia </u></span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="tutorials.html"><i class="fas fa-book-open"></i><span> Tutoriales </span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-info"></i><span> Ayuda </span></a></li>
+
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand shadow mb-4 topbar static-top" style="background-color: #4e73df;">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        </form>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">                            
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow" role="presentation">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><img class="img" src="assets/img/letras.png" style= "height:90%"><img class="img" src="assets/img/logoblanco.png" style= "height:80%"></a>
+                                    <div
+                                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                        <a
+                                            class="dropdown-item" role="presentation" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                     </div>
+                </nav>
+                
+                <!-- Modal Info connections and therapy -->
+                <div class="modal fade" id="modalinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Guía de Uso</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        <p> Sigue los siguientes pasos para comenzar una nueva terapia: </p>
+                        <p> &nbsp;&nbsp;&nbsp;&nbsp;<b>Step 1:</b>&nbsp;&nbsp; Encienda el SWalker y pulse el botón "Conectar SWalker". Espere hasta que el botón se ponga en verde. Si esto no ocurre, pulse Re-Conectar</p>
+                        <p> &nbsp;&nbsp;&nbsp;&nbsp;<b>Step 2</b>:&nbsp;&nbsp; Pulse el botón "Nueva Terapia" y espera 3 segundos. </p>
+                        <p> &nbsp;&nbsp;&nbsp;&nbsp;<b>Step 3</b>:&nbsp;&nbsp; Utilice los botónes "Start" y "Stop" para marcar el inicio y el fin de la terapia.</p>
+                        <p> &nbsp;&nbsp;&nbsp;&nbsp;<b>Step 5</b>:&nbsp;&nbsp; Pulse el botón "Guardar" para guardar los datos de la terapia. </p>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div> 
+                <!-- Modal Start Therapy Error -->
+                <div class="modal fade" id="modaltherapyadvice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> Error </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        <p> La terapia no puede empezar. Por favor, asegúrese de que ha conectado al menos un dispositivo antes de iniciar la terapia. </p>
+
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>    
+                <!-- Modal Start Therapy Error -->
+                <div class="modal fade" id="modalSwNotConn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> Error </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        <p> SWalker no detectado. Por favor, asegúrese de que el SWalker se encuentra conectado antes de iniciar la tracción. </p>
+
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>    
+                <!-- Modal pewvious therapy is still being stored -->
+                <div class="modal fade" id="modalDataNotSaved" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> Error </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        <p> La terapia anterior está siendo almacenada. Por favor, espere unos instantes para comenzar una nueva terapia. </p>
+
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>    
+                <!-- Modal Initial Position -->
+                <div class="modal fade" id="modaltherapyadviceinitialposition" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> ¡Importante! </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        <p> La calibración del SWalker comenzará en breves momentos. Por favor, asegúrese de que el paciente se encuentra en posición bipedestal y haga click en continuar.  </p>
+
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="continue">Continuar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>                 
+                            
+                <div class="container-fluid">
+                    <div class="mb-3 d-flex justify-content-between ">
+                        <h3 class="text-dark mb-4">&nbsp;Monitor de Terapia  <button id="info" type="button" class="btn button" data-toggle="modal" data-target="#modalinfo"><i class="fa fa-info-circle fa-lg" style="color:gray !important;"></i></button></h3>
+                        
+                    </div>
+  
+                    <div class="mb-3 d-flex centered">
+                        <button style="margin:5px; background: #808080; border-color: #0968e4" class="btn btn-primary " value="off" id="connect_swalker" type="submit"> Conectar SWalker </button>
+                        <button class="btn btn-primary " value="off" id="enable_emg" type="submit" style="margin:5px; background: #808080; border-color: #0968e4"> Conectar Delsys </button>
+                        <button class="btn btn-primary " value="off" id="connect_BLE" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" > Test BLE </button>
+                   
+
+                    </div>
+                    
+                    <div class="mb-3 d-flex centered">
+                    <button class="btn btn-primary " value="off" id="enable_vr" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4" disabled> VR Desconectado </button>
+                    <button class="btn btn-primary " value="off" id="juego1" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" disabled> Juego 1 </button>
+                    <button class="btn btn-primary " value="off" id="juego2" type="submit" style = "margin:5px; background: #808080; border-color: #0968e4; display:none" disabled> Juego 2 </button>
+
+                    </div>
+                    
+                    <div class="mb-3 d-flex centered" >
+						<button class="btn btn-primary " value="start_position" id="save_data" type="submit" style="margin:5px; background: #fd4e4e; border-color: #fd4e4e; display:none">Guardar datos</button>
+                        <button class="btn btn-primary btn-xl" value="start_calibration" id="start_stop" type="submit" style="margin:5px; background: #0968e4">Nueva Terapia</button>
+                        <button class="btn btn-primary btn-xl" id="calibrate" type="submit" style="margin:5px; background: #0968e4; display:none">Calibrar</button>
+                    </div>
+					<div class="row" style="display: flex; justify-content: space-around"  >
+						<div class="card shadow mb-12" id="observations_div" style="display:none">
+							<div class="card-body">
+								<label  >Observaciones</label>
+								<input class="form-control" style= "margin:5px" id="observations" type="text" placeholder="Escriba aquí los comentarios de la sesión...">
+							</div>
+						</div>
+
+					</div>
+                            
+                  
+                    
+                    <div class="mb-3 d-flex centered" style="padding-left:400px; padding-right:400px">
+						<input class="form-control" style= "margin:5px; display:none" id="observations" type="text" placeholder="Escriba aquí los comentarios de la sesión...">
+					</div>
+
+
+                    <!-- Joint Charts-->
+                    <div class="tab-pane fade show active" id="emg" role="tabpanel" aria-labelledby="emg_tabs">
+                        <div class="container-fluid">
+                            <div>
+                                <br>
+                            </div>
+                            <div class="row" style="display: flex; justify-content: space-around">
+
+                                <div class="col-lg-6 col-xl-8">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <div class="chart-area">
+                                                <h3>
+                                                    Seleccione una dirección:
+                                                </h3>
+                                                <div>
+                                                
+                                                <h3 class="btn btn-secondary" id="direction_html">
+                                                    Stop
+                                                </h3>
+                                                </div>
+                                                <div class="move_left icon">
+                                                    <div id="move_left" class="arrow arrow_left"></div>
+                                                </div>
+                                                <div class="move_fordward icon">
+                                                    <div id="move_fordward" class="arrow arrow_fordward"></div>
+                                                </div>
+                                                <div class="move_backwards icon">
+                                                    <div id="move_backwards" class="arrow arrow_backwards"></div>
+                                                </div>
+                                                <div class="move_right icon">
+                                                    <div id="move_right" class="arrow arrow_right"></div>
+                                                </div>
+                                                <div class="stop icon">
+                                                    <div id="move_stop" class="circle">
+                                                        <div id="stop_id" class="rectangle" class></div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <h3>
+                                                Velocidad: 
+                                            </h3>
+                                            <select class="btn  btn-primary" id="select_speed" class="form-control" onchange="selectGaitSpeed(this)" >
+                                                <option selected value="slow">Baja</option>
+                                                <option value="normal">Media</option>
+                                                <option value="high">Alta</option>
+                                            </select> 
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <script src="socket.io/socket.io.js"></script>
+                            <script src="move.js"></script>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <form class="user text-center">
+                            <div class="form-group" id="steps_form">
+                                <label>
+                                    <strong>Peso Soportado (%)</strong>
+                                </label>
+                                <div class="mb-3 d-flex centered">
+                                    <button class="btn btn-outline-secondary" type="button" id="supported_weight" value="10"> 0.00 </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+					
+					<!-- TABS PARA LA NEVEGACION DE LAS DIFERENTES TABLAS-->
+					<ul class="nav nav-tabs" id="myTab_graphs" role="tablist">
+						<li class="nav-item" role="presentation">
+							<a class="nav-link active" id="ROM_tab" data-toggle="tab" href="#rom" role="tab" aria-controls="rom" aria-selected="true"> <h3> ROM </h3></a>
+						</li>
+						<li class="nav-item" role="presentation">
+							<a class="nav-link " id="EMG_tab2" data-toggle="tab" href="#emg2" role="tab" aria-controls="emg2" aria-selected="false"> <h3> EMG </h3></a>
+						</li>
+					</ul>
+					<!-- TABS CONTENT-->
+					<div class="tab-content">
+						<!-- GRAPHS FOR ROM DATA -->
+                        <div class="tab-pane fade show active" id="rom" role="tabpanel">
+							<div id="jointCharts" class="card shadow mb-4">
+								<div class="container-fluid">
+									<br>
+									<div class="row mb-3">
+										<div class="col-lg-6">
+											<div class="card mb-3">
+												<div class="card-header d-flex justify-content-between align-items-center">
+													<h5 class="text-primary font-weight-bold m-0" style="width:100%;text-align: center;">Cadera Izquierda</h5>
+												</div>
+												<div class="card-body">
+													<div class="chart-area" >
+														<div id="LeftHip">
+															<canvas id="l_hip_chart"></canvas>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="card mb-3">
+												<div class="card-header d-flex justify-content-between align-items-center">
+													<h5 class="text-primary font-weight-bold m-0" style="width:100%; text-align: center;">Cadera Derecha</h5>
+												</div>
+												<div class="card-body">
+													<div class="chart-area">
+														<div id="rightLeftHip">
+															<canvas id="r_hip_chart"></canvas>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- GRAPHS FOR EMG DATA -->
+                        <div class="tab-pane fade" id="emg2" role="tabpanel">
+							<div id="emgCharts_rf" class="card shadow mb-4" >
+								<div class="container-fluid">
+									<br>
+									<div class="row mb-3">
+										<div class="col-lg-6">
+											<div class="card mb-3">
+												<div class="card-header d-flex justify-content-between align-items-center">
+													<h5 class="text-primary font-weight-bold m-0" style="width:100%; height:50%; text-align: center;">Recto Femoral Izquierdo</h5>
+												</div>
+												<div class="card-body">
+													<div class="chart-area">
+														<div id="rf_left">
+															<canvas id="rf_left_chart"></canvas>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="card mb-3">
+												<div class="card-header d-flex justify-content-between align-items-center">
+													<h5 class="text-primary font-weight-bold m-0" style="width:100%; text-align: center;">Recto Femoral Derecho</h5>
+												</div>
+												<div class="card-body">
+													<div class="chart-area">
+														<div id="rf_right">
+															<canvas id="rf_right_chart"></canvas>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div id="emgCharts_bf" class="card shadow mb-4" >
+								<div class="container-fluid">
+									<br>
+									<div class="row mb-3">
+										<div class="col-lg-6">
+											<div class="card mb-3">
+												<div class="card-header d-flex justify-content-between align-items-center">
+													<h5 class="text-primary font-weight-bold m-0" style="width:100%; text-align: center;">Biceps Femoral Izquierdo</h5>
+												</div>
+												<div class="card-body">
+													<div class="chart-area">
+														<div id="bf_left">
+															<canvas id="bf_left_chart"></canvas>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="card mb-3">
+												<div class="card-header d-flex justify-content-between align-items-center">
+													<h5 class="text-primary font-weight-bold m-0" style="width:100%; text-align: center;">Biceps Femoral Derecho</h5>
+												</div>
+												<div class="card-body">
+													<div class="chart-area">
+														<div id="bf_right">
+															<canvas id="bf_right_chart"></canvas>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="emgCharts_ta" class="card shadow mb-4" >
+								<div class="container-fluid">
+									<br>
+									<div class="row mb-3">
+										<div class="col-lg-6">
+											<div class="card mb-3">
+												<div class="card-header d-flex justify-content-between align-items-center">
+													<h5 class="text-primary font-weight-bold m-0" style="width:100%; text-align: center;">Tibial Anterior Izquierdo</h5>
+												</div>
+												<div class="card-body">
+													<div class="chart-area">
+														<div id="ta_left">
+															<canvas id="ta_left_chart"></canvas>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="card mb-3">
+												<div class="card-header d-flex justify-content-between align-items-center">
+													<h5 class="text-primary font-weight-bold m-0" style="width:100%; text-align: center;">Tibial Anterior Derecho</h5>
+												</div>
+												<div class="card-body">
+													<div class="chart-area">
+														<div id="ta_right">
+															<canvas id="ta_right_chart"></canvas>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="emgCharts_gm" class="card shadow mb-4" >
+								<div class="container-fluid">
+									<br>
+									<div class="row mb-3">
+										<div class="col-lg-6">
+											<div class="card mb-3">
+												<div class="card-header d-flex justify-content-between align-items-center">
+													<h5 class="text-primary font-weight-bold m-0" style="width:100%; text-align: center;">Gemelo Medial Izquierdo</h5>
+												</div>
+												<div class="card-body">
+													<div class="chart-area">
+														<div id="gm_left">
+															<canvas id="gm_left_chart"></canvas>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="card mb-3">
+												<div class="card-header d-flex justify-content-between align-items-center">
+													<h5 class="text-primary font-weight-bold m-0" style="width:100%; text-align: center;">Gemelo Medial Derecho</h5>
+												</div>
+												<div class="card-body">
+													<div class="chart-area">
+														<div id="gm_right">
+															<canvas id="gm_right_chart"></canvas>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						
+						</div>
+					</div>
+					<!-- GRAPHS FOR ROM EMG -->
+                        
+
+                    <!-- TABS PARA LA NEVEGACION DE LAS DIFERENTES TABLAS-->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="settings_tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="true"> <h3> Configuración de la Terapia </h3></a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-content fade show active" id="settings" role="tabpanel" aria-labelledby="settings_tab">
+                            <div class="row">
+                                <!-- Therapy settings information -->
+                                <div class="col">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-header d-flex justify-content-between align-items-center">
+                                            <h5 style="width:100%; text-align: center;" class="text-primary font-weight-bold m-0">Configuración</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <table style="width:100%; text-align: center;" class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" colspan="2" style=" text-align: center;">Patient</th>
+                                                        <th scope="col">Longitud de la pierna(cm)</th>
+                                                        <th scope="col">Peso (kg)</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" style=" text-align: center;"><p id='patient'> - </p></td>
+                                                        <td><p id='LegLength'> - </p></td>
+                                                        <td><p id='Weight'> - </p></td>
+                                                    </tr>
+                                                </tbody>
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="2" style=" text-align: center;" scope="col">Edad</th>
+                                                        <th colspan="2" style=" text-align: center;" scope="col">Velocidad de la marcha m/s</th>
+                                                        <!--<th scope="col">ROM (%)</th>-->
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" style=" text-align: center;"><p id='age'> - </p></td>
+                                                        <td colspan="2" style=" text-align: center;"><p id='gait_velocity'> - </p></td>
+                                                        <!--<td><p id='ROM'> - </p></td>-->
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+            <!-- End: Charts -->
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © SWalker Brand 2020</span></div>
+                </div>
+            </footer>
+        </div>
+        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="therapy_monitoring.js"></script>
+    
+    <script src="assets/js/cdnjsCloudflareAjaxLibsJquery341Jquery.min.js"></script>
+    <script src="assets/js/cdnjsCloudflareAjaxLibsTwitter-bootstrap441Bootstrap.bundle.min.js"></script>
+    <script src="assets/js/cdnjscloudflareAjaxLibsChartjs280Chart.bundle.min.js"></script>
+    <script src="assets/js/cdnjsCloudflareAjaxLibsJquery-easing141Jquery.easing.js"></script>
+    <script src="assets/js/script.min.js?h=cda46db5f8853791105ff4715b7208f3"></script>
+    <script src="assets/js/cdnJsdelivrNpmMoment@2240MinMoment.min.js"></script>
+    <script src="assets/js/cdnJsdelivrNpmChart.js"></script>
+    <script src="assets/js/cdnJsdelivrNpmChartjs-plugin-streaming@180.js"></script>
+
+    <script type="text/javascript" src="assets/js/cdnjsCloudflareAjaxlibsChartjs272Chart.bundle.js"></script>
+
+</body>
+
+</html>
