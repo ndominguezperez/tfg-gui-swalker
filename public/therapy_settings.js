@@ -3,7 +3,9 @@ const socket = io();
 //Call to database
 socket.emit("refreshlist");
 var patient_select = [];
+var therapist_select = [];
 var datapatients = {};
+var datatherapists = {};
 
 var use_swalker_boolean;
 
@@ -23,6 +25,27 @@ socket.on("patientdata", function (datapatient) {
       "</option>";
   }
   datapatients = datapatient;
+});
+
+socket.on("therapistdata", function (datatherapist) {
+  //console.log(datatherapist);
+  for (i = 0; i < datatherapist.length; i++) {
+    let therapist =
+      datatherapist[i].NombreTerapeuta +
+      " " +
+      datatherapist[i].ApellidoTerapeuta;
+    therapist_select.push(therapist);
+  }
+
+  for (var i in therapist_select) {
+    document.getElementById("therapists-list").innerHTML +=
+      "<option value='" +
+      therapist_select[i] +
+      "'>" +
+      therapist_select[i] +
+      "</option>";
+  }
+  datatherapists = datatherapist;
 });
 
 socket.on("set_patient_info", (patient_info) => {
@@ -61,7 +84,18 @@ window.onload = function () {
   // Updates the therapist and patient name according to the selected names in the "login" popup.
 
   document.getElementById("login_therapist_patient").onclick = function () {
-    if (document.getElementById("patients-list").value == "no_choose") {
+    if (
+      document.getElementById("therapists-list").value == "no_choose" ||
+      document.getElementById("patients-list").value == "no_choose"
+    ) {
+      if (document.getElementById("therapists-list").value == "no_choose") {
+        document.getElementById("empty_therapist").innerHTML =
+          "Selecciona un terapeuta o registra uno nuevo.";
+      } else if (
+        document.getElementById("therapists-list").value != "no_choose"
+      ) {
+        document.getElementById("empty_therapist").innerHTML = "";
+      }
       if (document.getElementById("patients-list").value == "no_choose") {
         document.getElementById("empty_patient").innerHTML =
           "Selecciona un paciente o registra uno nuevo.";
@@ -71,7 +105,10 @@ window.onload = function () {
         document.getElementById("empty_patient").innerHTML = "";
       }
     } else {
+      var therapist_name = document.getElementById("therapists-list");
       var patient_name = document.getElementById("patients-list");
+      document.getElementById("therapist-name").innerHTML =
+        therapist_name.value;
       document.getElementById("patient-name").innerHTML = patient_name.value;
 
       $("#myModal").modal("hide");
@@ -135,6 +172,7 @@ window.onload = function () {
       console.log(document.getElementById("velocity_value").value);
       socket.emit("settings:save_settings", {
         date: d.getTime(),
+        therapist_name: document.getElementById("therapists-list").value,
         patient_name: document.getElementById("patients-list").value,
         patient_age: document.getElementById("patient_age").value,
         patient_weight: document.getElementById("weight").value,

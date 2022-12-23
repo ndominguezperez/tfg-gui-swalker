@@ -124,14 +124,14 @@
 
                             </div>
 
-                            <!--/////////////////////////////////////////////////  PATIENT ////////////////////////////////////////////////////////////////////////////////-->
+                            <!--/////////////////////////////////////////////////  THERAPIST ////////////////////////////////////////////////////////////////////////////////-->
 
-                            <!-- Modal Add Patient -->
-                            <div class="modal fade" id="modaladdpatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <!-- Modal Add Therapist -->
+                            <div class="modal fade" id="modaladdtherapist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Añadir Paciente</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Añadir Terapeuta</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -140,121 +140,43 @@
                                     
     
                                         <form>
-                                            <!-- Input type text NAME -->
+                                            <!-- Input type text -->
                                             <div class="form-group">
-                                                <label for="FNPatient">Nombre</label>
-                                                <input type="text" class="form-control" name="FNPatient" id="FNPatient" placeholder="Nombre" required>
+                                                <label for="FNTherapist">Nombre</label>
+                                                <input type="text" class="form-control" name="FNTherapist" id="FNTherapist" placeholder="Therapist" required>
                                             </div>
                                             
-                                            <!-- Input type text SURNAME-->
+                                            <!-- Input type text -->
                                             <div class="form-group">
-                                                <label for="LNPatient">Primer Apellido</label>
-                                                <input type="text" class="form-control" name="LNPatient" id="LNPatient" placeholder="Apellido" required>
+                                                <label for="LNTherapist">Primer Apellido</label>
+                                                <input type="text" class="form-control" name="LNTherapist" id="LNTherapist" placeholder="Therapist" required>
                                             </div>
-                                            <!-- Input type text AGE and GENDER-->
-                                            <div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="patient_age">Edad</label>
-														<input type="text" class="form-control" name="AgePatient" id="AgePatient" placeholder="0" required>
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="FNPatient">Sexo</label>
-														<br>&nbsp;
-														<select class="btn  btn-primary" id="gender" class="form-control">
-															<option value="Hombre">Hombre</option>
-															<option value="Mujer">Mujer</option>
-														</select> 
-													</div>
-												</div>
-											</div>
-											
-											<!-- Input type text WEIGHT and HEIGHT-->
-											<div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="weight">Peso (Kg)</label>
-														<input type="text" class="form-control" name="WeightPatient" id="WeightPatient" placeholder="0" required>
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="leg_length"> Altura (cm)</label>
-														<input type="text" class="form-control" name="HPatient" id="HeightPatient" placeholder="0" required>
-													</div>
-												</div>
-											</div>
-											
-											<!--Input type text ACTIVE ROM and LEG LENGTH--> 
-											<div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="active_rom">ROM Activo (º)</label>
-														<input type="text" class="form-control" name="activeRom" id="activeRom" placeholder="0" required>
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="leg_length">Longitud de Pierna (cm)</label>
-														<input type="text" class="form-control" name="LLPatient" id="LLPatient" placeholder="0" required>
-													</div>
-												</div>
-												
-											</div>
-                                            <!-- Input type text TYPE OF SURGERY-->
-											<div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="observations">Tipo de cirujía</label>
-														<input class="form-control" id="surgery" type="text" placeholder="Tipo de cirujía">
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="weight">Cadera Dañada</label>
-														<select class="btn  btn-primary" id="hip_joint" class="form-control">
-															<option value="Derecha">Derecha</option>
-															<option value="Izquierda">Izquierda</option>
-															<option selected value="No Aplica ">No aplica</option>
-														</select> 													
-													</div>
-												</div>
-											</div>
-                                            <!-- Input type text PHYSYCAL AND COGNITIVE STATUS-->
-											<div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="estado_fisico">Estado Físico</label>
-														<input class="form-control" id="estado_fisico" type="text" placeholder="Estado fisico">
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="estado_cognitivo">Estado Cognitivo</label>
-														<input class="form-control" id="estado_cognitivo" type="text" placeholder="Estado cognitivo">
-													</div>
-												</div>
-											</div>
-											
+
+                                            <!-- Input type text -->
+                                            <div class="form-group">
+                                                <label for="Center">Centro</label>
+                                                <input type="text" class="form-control" name="Center" id="Center" placeholder="Hospital" required>
+                                            </div>
                                         </form>
+                                        
+
+
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        <button id="b_add_p" type="button" class="btn btn-primary" data-dismiss="modal">Guardar Cambios</button>
+                                        <button id="b_add_t" type="button" class="btn btn-primary" data-dismiss="modal">Guardar Cambios</button>
                                     </div>
                                 </div>
                                 </div>
                             </div> 
-                  
+                    
 
-                            <!-- Modal Edit Patient -->
-                            <div class="modal fade" id="modaleditpatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <!-- Modal Edit Therapist -->
+                            <div class="modal fade" id="modaledittherapist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Editar Paciente</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Editar Terapeuta</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -264,155 +186,74 @@
                                         <form>
                                             <!-- Input type text -->
                                             <div class="form-group">
-                                                <label for="FNPatient">Nombre</label>
-                                                <input type="text" class="form-control" name="FNPatient" id="editFNPatient" value ="" required>
+                                                <label for="FNTherapist">Nombre</label>
+                                                <input type="text" class="form-control" name="editFNTherapist" id="editFNTherapist" placeholder="Therapist" required>
                                             </div>
                                             
                                             <!-- Input type text -->
                                             <div class="form-group">
-                                                <label for="LNPatient">Primer Apellido</label>
-                                                <input type="text" class="form-control" name="LNPatient" id="editLNPatient" placeholder="Patient" required>
+                                                <label for="LNTherapist">Primer Apellido</label>
+                                                <input type="text" class="form-control" name="editLNTherapist" id="editLNTherapist" placeholder="Therapist" required>
                                             </div>
-                                            <!-- Input type text AGE and WEIGHT-->
-                                            <div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="patient_age">Edad</label>
-														<input type="text" class="form-control" name="AgePatient" id="editAgePatient" placeholder="0" required>
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="GENDERPatient">Sexo</label>
-														<br>&nbsp;
-														<select class="btn  btn-primary" id="editGender" class="form-control">
-															<option value="Hombre">Hombre</option>
-															<option value="Mujer">Mujer</option>
-														</select> 
-													</div>
-												</div>
-											</div>
-											<!-- Input type text WEIGHT and HEIGHT-->
-											<div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="weight">Peso (Kg)</label>
-														<input type="text" class="form-control" name="WeightPatient" id="editWeightPatient" placeholder="0" required>
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="leg_length"> Altura (cm)</label>
-														<input type="text" class="form-control" name="HPatient" id="editHeightPatient" placeholder="0" required>
-													</div>
-												</div>
-											</div>
-											<!--Input type text ACTIVE ROM and LEG LENGTH--> 
-											<div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="active_rom">ROM Activo (º)</label>
-														<input type="text" class="form-control" name="activeRom" id="editActiveRom" placeholder="0">
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="leg_length">Longitud de Pierna (cm)</label>
-														<input type="text" class="form-control" name="LLPatient" id="editLLPatient" placeholder="0" required>
-													</div>
-												</div>
-												
-											</div>
-                                            <!-- Input type text TYPE OF SURGERY-->
-											<div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="observations">Tipo de cirujía</label>
-														<input class="form-control" id="editsurgery" type="text" placeholder="Tipo de cirujía">
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="weight">Cadera Dañada</label>
-														<select class="btn  btn-primary" id="edithip_joint" class="form-control">
-															<option value="Derecha">Derecha</option>
-															<option value="Izquierda">Izquierda</option>
-															<option selected value="No Aplica ">No aplica</option>
-														</select> 													
-													</div>
-												</div>
-											</div>
-                                            <!-- Input type text PHYSYCAL AND COGNITIVE STATUS-->
-											<div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="estado_fisico">Estado Físico</label>
-														<input class="form-control" id="editestado_fisico" type="text" placeholder="Estado fisico">
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="estado_cognitivo">Estado Cognitivo</label>
-														<input class="form-control" id="editestado_cognitivo" type="text" placeholder="Estado cognitivo">
-													</div>
-												</div>
-											</div>
+
+                                            <!-- Input type text -->
+                                            <div class="form-group">
+                                                <label for="Center">Centro</label>
+                                                <input type="text" class="form-control" name="editCenter" id="editCenter" placeholder="Hospital" required>
+                                            </div>
                                         </form>
 
 
-
-
-
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button id="b_edit_p" type="button" class="btn btn-primary" data-dismiss="modal">Guardar Cambios</button>
+                                    <button id="b_edit_t" type="button" class="btn btn-primary" data-dismiss="modal">Guardar Cambios</button>
                                     </div>
                                 </div>
                                 </div>
                             </div> 
 
 
-                            <!-- Modal Deleted Patient -->
-                            <div class="modal fade" id="modaldeletedpatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <!-- Modal Deleted Therapist -->
+                            <div class="modal fade" id="modaldeletedtherapist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Paciente</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Terapeuta</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     </div>
                                     <div class="modal-body">
-										¿Estás seguro de que quieres eliminar este paciente?
+                                        ¿Estás seguro de que quieres eliminar este terapeuta?
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                    <button id="b_delete_p" type="button" class="btn btn-primary" data-dismiss="modal">Si</button>
+                                    <button id="b_delete_t" type="button" class="btn btn-primary" data-dismiss="modal">Si</button>
                                     </div>
                                 </div>
                                 </div>
                             </div> 
-
-
-                            <!-- Modal Download List Patients -->
-                            <div class="modal fade" id="modaldownloadlistpatients" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        
+                        
+                            <!-- Modal Download List Therapist -->
+                            <div class="modal fade" id="modaldownloadlisttherapist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Descargar Sesión</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Descargar Sesión</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ¿Quiere descargar la lista de terapeutas?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                            <button id="b_download_t" type="button" class="btn btn-primary" data-dismiss="modal">Descargar</button>
+                                        </div>
                                     </div>
-                                    <div class="modal-body">
-                                        ¿Quieres descargar los datos de esta sesión?
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button id="b_download_p" type="button" class="btn btn-primary" data-dismiss="modal">Descargar</button>
-                                    </div>
-                                </div>
                                 </div>
                             </div> 
                             <!-- -------------------------------------------------STYLE DE UN BOTON-----------------------------------------------------------------------------------
@@ -437,10 +278,10 @@
                                 <div class="tab-pane fade show active" id="patients" role="tabpanel" aria-labelledby="profile-tab">
                                     <br>
                                     <div id="toolbar" style="text-align: center;">
-                                        <button id="add_patient" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaladdpatient" style="margin: 30px; padding: 40px 25px; border:solid 4px; border-radius: 15%;"><i class="fas fa-user-plus" style="font-size:60px;" ></i> <br/>Añadir Paciente</button>
-                                        <button id="edit_patient" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaleditpatient" style="margin: 30px; padding: 40px 30px; border:solid 4px; border-radius: 15%;"><i class="fas fa-edit"style="font-size:60px;"></i> <br/>Editar Paciente</button>
-                                        <button id="remove_patient" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldeletedpatient" style="margin: 30px; padding: 40px 20px; border:solid 4px; border-radius: 15%;"><i class="fas fa-user-times"style="font-size:60px;"></i> <br/>Eliminar Paciente</button>
-                                        <br/><button id="download_list_patient" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldownloadlistpatients" style="margin: 30px; padding: 30px 30px; border:solid 4px; border-radius: 15%;"><i class="fas fa-download"style="font-size:60px;"></i> <br/>Descargar Lista <br/>De Pacientes</button>
+                                        <button id="add_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaladdtherapist" style="margin: 30px; padding: 40px 25px; border:solid 4px; border-radius: 15%;"><i class="fas fa-user-plus" style="font-size:60px;" ></i> <br/>Añadir Terapeuta</button>
+                                        <button id="edit_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaledittherapist" style="margin: 30px; padding: 40px 30px; border:solid 4px; border-radius: 15%;" ><i class="fas fa-edit"style="font-size:60px;"></i> <br/>Editar Terapeuta</button>
+                                        <button id="remove_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldeletedtherapist" style="margin: 30px; padding: 40px 20px; border:solid 4px; border-radius: 15%;" ><i class="fas fa-user-times"style="font-size:60px;"></i> <br/>Eliminar Terapeuta</button>
+                                        <button id="download_list_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldownloadlisttherapist" style="margin: 30px; padding: 30px 30px; border:solid 4px; border-radius: 15%;"><i class="fas fa-download"style="font-size:60px;"></i> <br/>Descargar Lista <br/>De Terapeutas</button>
                                         
                                     </div>
                                     <br> 
