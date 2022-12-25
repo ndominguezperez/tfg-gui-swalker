@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SWalker</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/google-fonts-nunito.css">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/google-fonts-montserrat.css">
+    <link rel="stylesheet" href="assets/css/cloudflareAjaxBaguetteboxbaguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+  
+    <!--JQUERY-->
+    <script src="assets/js/jquery-321.min.js"></script>
+    <script
+    src="assets/js/jquery-3-4-1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>      
+
+    <link href="assets/css/jquery.dataTables.min.css">
+    <link href="assets/css/buttons.dataTables.min.css">
+
+    <!--   --> 
+    <style type="text/css">
+        td.details-control {
+            cursor: pointer;
+        }
+    </style>
+
+
+    <script src="assets/js/jquery-3.5.1.js"></script>
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/dataTables.buttons.min.js"></script>
+    <script src="assets/js/buttons.flash.min.js"></script>
+    <script src="assets/js/jszip313.min.js"></script>
+    <script src="assets/js/pdfmake.min.js"></script>
+    <script src="assets/js/vfs_fonts.js"></script>
+    <script src="assets/js/buttons.html5.min.js"></script>
+    <script src="assets/js/buttons.print.min.js"></script>
+    <script src="assets/js/cdnJsdelivrNpmMoment@2240MinMoment.min.js"></script>
+
+    <script src="assets/js/v5.15.1jsall.js" data-auto-replace-svg></script>
+    <script src="assets/js/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      
+      <script src="assets/js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      
+      <!-- Los iconos tipo Solid de Fontawesome-->
+      <link rel="stylesheet"
+          href="assets/css/v508csssolid.css">
+      <script src="assets/js/v5.0.7jsall.js"></script>
+      <script src="socket.io/socket.io.js"></script>
+      <script src="users.js"></script>
+      
+      
+      <!-- DATA TABLE -->
+      <script src="assets/js/1-10-19jquery.dataTables.min.js"></script>
+      <script src="assets/js/1.10.19dataTables.bootstrap4.min.js"></script>
+      <link rel="stylesheet" href="assets/css/twitter-bootstrap4.1.1cssbootstrap.css">	
+      <link rel="stylesheet" href="assets/css/1.10.19cssdataTables.bootstrap4.min.css">
+
+
+      <link rel="stylesheet" href="assets/css/4.5.2cssbootstrap.min.css">
+     
+      <script src="assets/js/1.16.0umdpopper.min.js"></script>
+      <script src="assets/js/bootstrap4.5.2jsbootstrap.min.js"></script>
+
+
+</head>
+
+<body id="page-top">
+    
+     <!-- Start: side and top bars -->
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <img class="img" style= "height:250%" src="assets/img/SWALKER-logo2.png">
+                    <div class="sidebar-brand-text mx-3"><span>SWalker</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html" style="display:none;"><i class="fas fa-arrow-left"></i><span> Página de inicio</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="patients_menu.html"><i class="fas fa-child"></i><span> <u> Pacientes </u></span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="therapy_menu.html"><i class="fas fa-clinic-medical"></i><span> Terapia </span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="tutorials.html"><i class="fas fa-book-open"></i><span> Tutoriales </span></a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-info"></i><span> Ayuda </span></a></li>
+
+                </ul>
+                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand shadow mb-4 topbar static-top" style="background-color: #4e73df;">
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        </form>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow" role="presentation">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><img class="img" src="assets/img/letras.png" style= "height:80%"><img class="img" src="assets/img/logoblanco.png" style= "height:80%"></a>
+                                    <!--<div
+                                        class="dropdown-menu shadow dropdown-menu-right animated--grow-in" role="menu"><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                                        <a
+                                            class="dropdown-item" role="presentation" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" role="presentation" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a></div>
+                                -->
+                                </div>
+                            </li>
+                        </ul>
+                     </div>
+                </nav>
+            <div class="container-fluid">
+                <main class="page contact-us-page">
+                    <section class="clean-block clean-form dark">
+                        <div class="container-fluid">
+                            <div class="block-heading">
+                               <!-- <h2 class="text-info">Patient Sessions</h2>
+                                <p>Enter patient data</p> -->
+                          
+
+                            </div>
+
+                            <!--/////////////////////////////////////////////////  PATIENT ////////////////////////////////////////////////////////////////////////////////-->
+
+                            <!-- Modal Add Patient -->
+                            <div class="modal fade" id="modaladdpatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Añadir Paciente</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    
+    
+                                        <form>
+                                            <!-- Input type text NAME -->
+                                            <div class="form-group">
+                                                <label for="FNPatient">Nombre</label>
+                                                <input type="text" class="form-control" name="FNPatient" id="FNPatient" placeholder="Nombre" required>
+                                            </div>
+                                            
+                                            <!-- Input type text SURNAME-->
+                                            <div class="form-group">
+                                                <label for="LNPatient">Primer Apellido</label>
+                                                <input type="text" class="form-control" name="LNPatient" id="LNPatient" placeholder="Apellido" required>
+                                            </div>
+                                            <!-- Input type text AGE and GENDER-->
+                                            <div class="form-row">
+												<div class="col">
+													<div class="form-group">
+														<label for="patient_age">Edad</label>
+														<input type="text" class="form-control" name="AgePatient" id="AgePatient" placeholder="0" required>
+													</div>
+												</div>
+												<div class="col">
+													<div class="form-group">
+														<label for="FNPatient">Sexo</label>
+														<br>&nbsp;
+														<select class="btn  btn-primary" id="gender" class="form-control">
+															<option value="Hombre">Hombre</option>
+															<option value="Mujer">Mujer</option>
+														</select> 
+													</div>
+												</div>
+											</div>
+											
+											<!-- Input type text WEIGHT and HEIGHT-->
+											<div class="form-row">
+												<div class="col">
+													<div class="form-group">
+														<label for="weight">Peso (Kg)</label>
+														<input type="text" class="form-control" name="WeightPatient" id="WeightPatient" placeholder="0" required>
+													</div>
+												</div>
+												<div class="col">
+													<div class="form-group">
+														<label for="leg_length"> Altura (cm)</label>
+														<input type="text" class="form-control" name="HPatient" id="HeightPatient" placeholder="0" required>
+													</div>
+												</div>
+											</div>
+											
+											<!--Input type text ACTIVE ROM and LEG LENGTH--> 
+											<div class="form-row">
+												<div class="col">
+													<div class="form-group">
+														<label for="active_rom">ROM Activo (º)</label>
+														<input type="text" class="form-control" name="activeRom" id="activeRom" placeholder="0" required>
+													</div>
+												</div>
+												<div class="col">
+													<div class="form-group">
+														<label for="leg_length">Longitud de Pierna (cm)</label>
+														<input type="text" class="form-control" name="LLPatient" id="LLPatient" placeholder="0" required>
+													</div>
+												</div>
+												
+											</div>
+                                            <!-- Input type text TYPE OF SURGERY-->
+											<div class="form-row">
+												<div class="col">
+													<div class="form-group">
+														<label for="observations">Tipo de cirujía</label>
+														<input class="form-control" id="surgery" type="text" placeholder="Tipo de cirujía">
+													</div>
+												</div>
+												<div class="col">
+													<div class="form-group">
+														<label for="weight">Cadera Dañada</label>
+														<select class="btn  btn-primary" id="hip_joint" class="form-control">
+															<option value="Derecha">Derecha</option>
+															<option value="Izquierda">Izquierda</option>
+															<option selected value="No Aplica ">No aplica</option>
+														</select> 													
+													</div>
+												</div>
+											</div>
+                                            <!-- Input type text PHYSYCAL AND COGNITIVE STATUS-->
+											<div class="form-row">
+												<div class="col">
+													<div class="form-group">
+														<label for="estado_fisico">Estado Físico</label>
+														<input class="form-control" id="estado_fisico" type="text" placeholder="Estado fisico">
+													</div>
+												</div>
+												<div class="col">
+													<div class="form-group">
+														<label for="estado_cognitivo">Estado Cognitivo</label>
+														<input class="form-control" id="estado_cognitivo" type="text" placeholder="Estado cognitivo">
+													</div>
+												</div>
+											</div>
+											
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        <button id="b_add_p" type="button" class="btn btn-primary" data-dismiss="modal">Guardar Cambios</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> 
+                  
+
+                            <!-- Modal Edit Patient -->
+                            <div class="modal fade" id="modaleditpatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Editar Paciente</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    
+                                        <form>
+                                            <!-- Input type text -->
+                                            <div class="form-group">
+                                                <label for="FNPatient">Nombre</label>
+                                                <input type="text" class="form-control" name="FNPatient" id="editFNPatient" value ="" required>
+                                            </div>
+                                            
+                                            <!-- Input type text -->
+                                            <div class="form-group">
+                                                <label for="LNPatient">Primer Apellido</label>
+                                                <input type="text" class="form-control" name="LNPatient" id="editLNPatient" placeholder="Patient" required>
+                                            </div>
+                                            <!-- Input type text AGE and WEIGHT-->
+                                            <div class="form-row">
+												<div class="col">
+													<div class="form-group">
+														<label for="patient_age">Edad</label>
+														<input type="text" class="form-control" name="AgePatient" id="editAgePatient" placeholder="0" required>
+													</div>
+												</div>
+												<div class="col">
+													<div class="form-group">
+														<label for="GENDERPatient">Sexo</label>
+														<br>&nbsp;
+														<select class="btn  btn-primary" id="editGender" class="form-control">
+															<option value="Hombre">Hombre</option>
+															<option value="Mujer">Mujer</option>
+														</select> 
+													</div>
+												</div>
+											</div>
+											<!-- Input type text WEIGHT and HEIGHT-->
+											<div class="form-row">
+												<div class="col">
+													<div class="form-group">
+														<label for="weight">Peso (Kg)</label>
+														<input type="text" class="form-control" name="WeightPatient" id="editWeightPatient" placeholder="0" required>
+													</div>
+												</div>
+												<div class="col">
+													<div class="form-group">
+														<label for="leg_length"> Altura (cm)</label>
+														<input type="text" class="form-control" name="HPatient" id="editHeightPatient" placeholder="0" required>
+													</div>
+												</div>
+											</div>
+											<!--Input type text ACTIVE ROM and LEG LENGTH--> 
+											<div class="form-row">
+												<div class="col">
+													<div class="form-group">
+														<label for="active_rom">ROM Activo (º)</label>
+														<input type="text" class="form-control" name="activeRom" id="editActiveRom" placeholder="0">
+													</div>
+												</div>
+												<div class="col">
+													<div class="form-group">
+														<label for="leg_length">Longitud de Pierna (cm)</label>
+														<input type="text" class="form-control" name="LLPatient" id="editLLPatient" placeholder="0" required>
+													</div>
+												</div>
+												
+											</div>
+                                            <!-- Input type text TYPE OF SURGERY-->
+											<div class="form-row">
+												<div class="col">
+													<div class="form-group">
+														<label for="observations">Tipo de cirujía</label>
+														<input class="form-control" id="editsurgery" type="text" placeholder="Tipo de cirujía">
+													</div>
+												</div>
+												<div class="col">
+													<div class="form-group">
+														<label for="weight">Cadera Dañada</label>
+														<select class="btn  btn-primary" id="edithip_joint" class="form-control">
+															<option value="Derecha">Derecha</option>
+															<option value="Izquierda">Izquierda</option>
+															<option selected value="No Aplica ">No aplica</option>
+														</select> 													
+													</div>
+												</div>
+											</div>
+                                            <!-- Input type text PHYSYCAL AND COGNITIVE STATUS-->
+											<div class="form-row">
+												<div class="col">
+													<div class="form-group">
+														<label for="estado_fisico">Estado Físico</label>
+														<input class="form-control" id="editestado_fisico" type="text" placeholder="Estado fisico">
+													</div>
+												</div>
+												<div class="col">
+													<div class="form-group">
+														<label for="estado_cognitivo">Estado Cognitivo</label>
+														<input class="form-control" id="editestado_cognitivo" type="text" placeholder="Estado cognitivo">
+													</div>
+												</div>
+											</div>
+                                        </form>
+
+
+
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button id="b_edit_p" type="button" class="btn btn-primary" data-dismiss="modal">Guardar Cambios</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> 
+
+
+                            <!-- Modal Deleted Patient -->
+                            <div class="modal fade" id="modaldeletedpatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Paciente</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+										¿Estás seguro de que quieres eliminar este paciente?
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                    <button id="b_delete_p" type="button" class="btn btn-primary" data-dismiss="modal">Si</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> 
+
+
+                            <!-- Modal Download List Patients -->
+                            <div class="modal fade" id="modaldownloadlistpatients" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Descargar Sesión</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ¿Quieres descargar los datos de esta sesión?
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    <button id="b_download_p" type="button" class="btn btn-primary" data-dismiss="modal">Descargar</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div> 
+                            <!-- -------------------------------------------------STYLE DE UN BOTON-----------------------------------------------------------------------------------
+                            <style type="text/css">
+                                .boton_personalizado{
+                                  text-decoration: none;
+                                  padding: 30px;
+                                  font-weight: 600;
+                                  font-size: 20px;
+                                  color: #ffffff;
+                                  background-color: #1883ba;
+                                  border-radius: 6px;
+                                  border: 2px solid #0016b0;
+                                }
+                                .boton_personalizado:hover{
+                                  color: #1883ba;
+                                  background-color: #ffffff;
+                                }
+                            </style> -->
+
+                            <div class="tab-content" id="myTabContent"></div>
+                                <div class="tab-pane fade show active" id="patients" role="tabpanel" aria-labelledby="profile-tab">
+                                    <br>
+                                    <div id="toolbar" style="text-align: center;">
+                                        <button id="add_patient" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaladdpatient" style="margin: 30px; padding: 40px 25px; border:solid 4px; border-radius: 15%;"><i class="fas fa-user-plus" style="font-size:60px;" ></i> <br/>Añadir Paciente</button>
+                                        <button id="edit_patient" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaleditpatient" style="margin: 30px; padding: 40px 30px; border:solid 4px; border-radius: 15%;" onclick="redirectEditPatien()"><i class="fas fa-edit"style="font-size:60px;"></i> <br/>Editar Paciente</button>
+                                        <script type="text/javascript">
+                                            function redirectEditPatien(){
+                                                window.location.href="patients_edit.html";
+                                            }
+                                        </script>
+                                        <button id="remove_patient" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldeletedpatient" style="margin: 30px; padding: 40px 20px; border:solid 4px; border-radius: 15%;" onclick="redirectRemovePatien()"><i class="fas fa-user-times"style="font-size:60px;"></i> <br/>Eliminar Paciente</button>
+                                        <script type="text/javascript">
+                                            function redirectRemovePatien(){
+                                                window.location.href="patients_remove.html";
+                                            }
+                                        </script>
+                                        <br/><button id="download_list_patient" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldownloadlistpatients" style="margin: 30px; padding: 30px 30px; border:solid 4px; border-radius: 15%;" onclick="redirectDownloadPatien()"><i class="fas fa-download"style="font-size:60px;"></i> <br/>Descargar Lista <br/>De Pacientes</button>
+                                        <script type="text/javascript">
+                                            function redirectDownloadPatien(){
+                                                window.location.href="patients_download.html";
+                                            }
+                                        </script>
+
+                                    </div>
+                                    <br> 
+
+                                    <!-- <div class="table-responsive ">
+                                        <style>
+                                            .table.dataTable  {
+                                            font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                            font-size: 13px;
+                                            }
+                                        </style>
+                                        <table id="patientsList" class="table table-bordered table-hover table-striped">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th>
+                                                        <input type="checkbox" />
+                                                    </th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col">Apellido</th>
+                                                    <th scope="col">Edad</th>
+                                                    <th scope="col">Sexo</th>
+                                                    <th scope="col">Peso</th>
+                                                    <th scope="col">Altura</th>
+                                                    <th scope="col">Longitud de Pierna</th>
+                                                    <th scope="col">ROM Activo Maximo</th>
+                                                    <th scope="col">Cadera Afectada</th>
+                                                    <th scope="col">Tipo de Cirujía</th>
+                                                    <th scope="col">Estado Cognitivo</th>
+                                                    <th scope="col">Estado Físico</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div> -->
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © SWalker 2021</span></div>
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="assets/js/cdnjscloudflareAjaxLibsChartjs280Chart.bundle.min.js"></script>
+
+</body>
+
+</html>
