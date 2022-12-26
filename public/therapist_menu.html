@@ -82,7 +82,8 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html" style="display:none;"><i class="fas fa-arrow-left"></i><span> Página de inicio</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="patients.html"><i class="fas fa-child"></i><span> <u> Pacientes </u></span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="patients_menu.html"><i class="fas fa-child"></i><span> Pacientes </span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="therapist_menu.html"><i class="fas fa-user-nurse"></i><span> <u> Terapeutas  </u></span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="therapy_menu.html"><i class="fas fa-clinic-medical"></i><span> Terapia </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="tutorials.html"><i class="fas fa-book-open"></i><span> Tutoriales </span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-info"></i><span> Ayuda </span></a></li>
@@ -125,6 +126,7 @@
                             </div>
 
                             <!--/////////////////////////////////////////////////  THERAPIST ////////////////////////////////////////////////////////////////////////////////-->
+
 
                             <!-- Modal Add Therapist -->
                             <div class="modal fade" id="modaladdtherapist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -169,120 +171,31 @@
                                 </div>
                                 </div>
                             </div> 
-                    
-
-                            <!-- Modal Edit Therapist -->
-                            <div class="modal fade" id="modaledittherapist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Editar Terapeuta</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                    
-                                        <form>
-                                            <!-- Input type text -->
-                                            <div class="form-group">
-                                                <label for="FNTherapist">Nombre</label>
-                                                <input type="text" class="form-control" name="editFNTherapist" id="editFNTherapist" placeholder="Therapist" required>
-                                            </div>
-                                            
-                                            <!-- Input type text -->
-                                            <div class="form-group">
-                                                <label for="LNTherapist">Primer Apellido</label>
-                                                <input type="text" class="form-control" name="editLNTherapist" id="editLNTherapist" placeholder="Therapist" required>
-                                            </div>
-
-                                            <!-- Input type text -->
-                                            <div class="form-group">
-                                                <label for="Center">Centro</label>
-                                                <input type="text" class="form-control" name="editCenter" id="editCenter" placeholder="Hospital" required>
-                                            </div>
-                                        </form>
-
-
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button id="b_edit_t" type="button" class="btn btn-primary" data-dismiss="modal">Guardar Cambios</button>
-                                    </div>
-                                </div>
-                                </div>
-                            </div> 
-
-
-                            <!-- Modal Deleted Therapist -->
-                            <div class="modal fade" id="modaldeletedtherapist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Terapeuta</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ¿Estás seguro de que quieres eliminar este terapeuta?
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                    <button id="b_delete_t" type="button" class="btn btn-primary" data-dismiss="modal">Si</button>
-                                    </div>
-                                </div>
-                                </div>
-                            </div> 
-                        
-                        
-                            <!-- Modal Download List Therapist -->
-                            <div class="modal fade" id="modaldownloadlisttherapist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Descargar Sesión</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            ¿Quiere descargar la lista de terapeutas?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                            <button id="b_download_t" type="button" class="btn btn-primary" data-dismiss="modal">Descargar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> 
-                            <!-- -------------------------------------------------STYLE DE UN BOTON-----------------------------------------------------------------------------------
-                            <style type="text/css">
-                                .boton_personalizado{
-                                  text-decoration: none;
-                                  padding: 30px;
-                                  font-weight: 600;
-                                  font-size: 20px;
-                                  color: #ffffff;
-                                  background-color: #1883ba;
-                                  border-radius: 6px;
-                                  border: 2px solid #0016b0;
-                                }
-                                .boton_personalizado:hover{
-                                  color: #1883ba;
-                                  background-color: #ffffff;
-                                }
-                            </style> -->
 
                             <div class="tab-content" id="myTabContent"></div>
                                 <div class="tab-pane fade show active" id="patients" role="tabpanel" aria-labelledby="profile-tab">
                                     <br>
                                     <div id="toolbar" style="text-align: center;">
                                         <button id="add_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaladdtherapist" style="margin: 30px; padding: 40px 25px; border:solid 4px; border-radius: 15%;"><i class="fas fa-user-plus" style="font-size:60px;" ></i> <br/>Añadir Terapeuta</button>
-                                        <button id="edit_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaledittherapist" style="margin: 30px; padding: 40px 30px; border:solid 4px; border-radius: 15%;" ><i class="fas fa-edit"style="font-size:60px;"></i> <br/>Editar Terapeuta</button>
-                                        <button id="remove_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldeletedtherapist" style="margin: 30px; padding: 40px 20px; border:solid 4px; border-radius: 15%;" ><i class="fas fa-user-times"style="font-size:60px;"></i> <br/>Eliminar Terapeuta</button>
-                                        <button id="download_list_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldownloadlisttherapist" style="margin: 30px; padding: 30px 30px; border:solid 4px; border-radius: 15%;"><i class="fas fa-download"style="font-size:60px;"></i> <br/>Descargar Lista <br/>De Terapeutas</button>
-                                        
+                                        <button id="edit_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaledittherapist" style="margin: 30px; padding: 40px 30px; border:solid 4px; border-radius: 15%;" onclick="redirectEditTherapist()"><i class="fas fa-edit"style="font-size:60px;"></i> <br/>Editar Terapeuta</button>
+                                        <script type="text/javascript">
+                                            function redirectEditTherapist(){
+                                                window.location.href="therapists_edit.html";
+                                            }
+                                        </script>
+                                        <button id="remove_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldeletedtherapist" style="margin: 30px; padding: 40px 20px; border:solid 4px; border-radius: 15%;" onclick="redirectRemoveTherapist()"><i class="fas fa-user-times"style="font-size:60px;"></i> <br/>Eliminar Terapeuta</button>
+                                        <script type="text/javascript">
+                                            function redirectRemoveTherapist(){
+                                                window.location.href="therapists_remove.html";
+                                            }
+                                        </script>
+                                        <br/><button id="download_list_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldownloadlisttherapist" style="margin: 30px; padding: 30px 30px; border:solid 4px; border-radius: 15%;" onclick="redirectDownloadTherapists()"><i class="fas fa-download"style="font-size:60px;"></i> <br/>Descargar Lista <br/>De Terapeutas</button>
+                                        <script type="text/javascript">
+                                            function redirectDownloadTherapists(){
+                                                window.location.href="therapists_download.html";
+                                            }
+                                        </script>
+
                                     </div>
                                     <br> 
 

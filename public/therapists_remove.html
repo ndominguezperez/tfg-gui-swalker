@@ -83,8 +83,8 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html" style="display:none;"><i class="fas fa-arrow-left"></i><span> Página de inicio</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="patients_menu.html"><i class="fas fa-child"></i><span> <u> Pacientes </u></span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="therapist_menu.html"><i class="fas fa-user-nurse"></i><span> Terapeutas</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="patients_menu.html"><i class="fas fa-child"></i><span> Pacientes </span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="therapist_menu.html"><i class="fas fa-user-nurse"></i><span> <u> Terapeutas </u> </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="therapy_menu.html"><i class="fas fa-clinic-medical"></i><span> Terapia </span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="tutorials.html"><i class="fas fa-book-open"></i><span> Tutoriales </span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-info"></i><span> Ayuda </span></a></li>
@@ -134,128 +134,29 @@
                                 <div class="block-heading">
                                 </div>
 
-                            <!--/////////////////////////////////////////////////  PATIENT ////////////////////////////////////////////////////////////////////////////////-->
+                            <!--/////////////////////////////////////////////////  THERAPIST ////////////////////////////////////////////////////////////////////////////////-->
 
-
-                            <!-- Modal Edit Patient -->
-                            <div class="modal fade" id="modaleditpatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <!-- Modal Deleted Therapist -->
+                            <div class="modal fade" id="modaldeletedtherapist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Editar Paciente</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Terapeuta</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     </div>
                                     <div class="modal-body">
-                                    
-                                        <form>
-                                            <!-- Input type text -->
-                                            <div class="form-group">
-                                                <label for="FNPatient">Nombre</label>
-                                                <input type="text" class="form-control" name="FNPatient" id="editFNPatient" value ="" required>
-                                            </div>
-                                            
-                                            <!-- Input type text -->
-                                            <div class="form-group">
-                                                <label for="LNPatient">Primer Apellido</label>
-                                                <input type="text" class="form-control" name="LNPatient" id="editLNPatient" placeholder="Patient" required>
-                                            </div>
-                                            <!-- Input type text AGE and WEIGHT-->
-                                            <div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="patient_age">Edad</label>
-														<input type="text" class="form-control" name="AgePatient" id="editAgePatient" placeholder="0" required>
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="GENDERPatient">Sexo</label>
-														<br>&nbsp;
-														<select class="btn  btn-primary" id="editGender" class="form-control">
-															<option value="Hombre">Hombre</option>
-															<option value="Mujer">Mujer</option>
-														</select> 
-													</div>
-												</div>
-											</div>
-											<!-- Input type text WEIGHT and HEIGHT-->
-											<div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="weight">Peso (Kg)</label>
-														<input type="text" class="form-control" name="WeightPatient" id="editWeightPatient" placeholder="0" required>
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="leg_length"> Altura (cm)</label>
-														<input type="text" class="form-control" name="HPatient" id="editHeightPatient" placeholder="0" required>
-													</div>
-												</div>
-											</div>
-											<!--Input type text ACTIVE ROM and LEG LENGTH--> 
-											<div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="active_rom">ROM Activo (º)</label>
-														<input type="text" class="form-control" name="activeRom" id="editActiveRom" placeholder="0">
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="leg_length">Longitud de Pierna (cm)</label>
-														<input type="text" class="form-control" name="LLPatient" id="editLLPatient" placeholder="0" required>
-													</div>
-												</div>
-												
-											</div>
-                                            <!-- Input type text TYPE OF SURGERY-->
-											<div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="observations">Tipo de cirujía</label>
-														<input class="form-control" id="editsurgery" type="text" placeholder="Tipo de cirujía">
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="weight">Cadera Dañada</label>
-														<select class="btn  btn-primary" id="edithip_joint" class="form-control">
-															<option value="Derecha">Derecha</option>
-															<option value="Izquierda">Izquierda</option>
-															<option selected value="No Aplica ">No aplica</option>
-														</select> 													
-													</div>
-												</div>
-											</div>
-                                            <!-- Input type text PHYSYCAL AND COGNITIVE STATUS-->
-											<div class="form-row">
-												<div class="col">
-													<div class="form-group">
-														<label for="estado_fisico">Estado Físico</label>
-														<input class="form-control" id="editestado_fisico" type="text" placeholder="Estado fisico">
-													</div>
-												</div>
-												<div class="col">
-													<div class="form-group">
-														<label for="estado_cognitivo">Estado Cognitivo</label>
-														<input class="form-control" id="editestado_cognitivo" type="text" placeholder="Estado cognitivo">
-													</div>
-												</div>
-											</div>
-                                        </form>
+                                        ¿Estás seguro de que quieres eliminar este terapeuta?
                                     </div>
                                     <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button id="b_edit_p" type="button" class="btn btn-primary" data-dismiss="modal">Guardar Cambios</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                    <button id="b_delete_t" type="button" class="btn btn-primary" data-dismiss="modal">Si</button>
                                     </div>
                                 </div>
                                 </div>
                             </div> 
-
-
+                        
                             <div class="tab-pane fade show active" id="patients" role="tabpanel" aria-labelledby="profile-tab">
                                     <br>
                                     <div class="table-responsive ">
@@ -265,33 +166,22 @@
                                             font-size: 13px;
                                             }
                                         </style>
-                                        <table id="patientsList" class="table table-bordered table-hover table-striped">
+                                        <table id="therapistList" class="table table-bordered table-hover table-striped">
                                             <thead class="thead-light">
                                                 <tr>
-                                                    <th></th>
                                                     <th>
                                                         <input type="checkbox" />
                                                     </th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Nombre</th>
-                                                    <th scope="col">Apellido</th>
-                                                    <th scope="col">Edad</th>
-                                                    <th scope="col">Sexo</th>
-                                                    <th scope="col">Peso</th>
-                                                    <th scope="col">Altura</th>
-                                                    <th scope="col">Longitud de Pierna</th>
-                                                    <th scope="col">ROM Activo Maximo</th>
-                                                    <th scope="col">Cadera Afectada</th>
-                                                    <th scope="col">Tipo de Cirujía</th>
-                                                    <th scope="col">Estado Cognitivo</th>
-                                                    <th scope="col">Estado Físico</th>
+                                                    <th scope="col">Nombre Del Terapeuta</th>
+                                                    <th scope="col">Apellido Del Terapeuta</th>
+                                                    <th scope="col">Centro</th>
                                                 </tr>
                                             </thead>
                                         </table>
-                            </div> 
+                                    </div>  
                              <br>
                                     <div id="toolbar" style="text-align: center;">
-                                        <button id="edit_patient" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaleditpatient" ><i class="fas fa-edit"></i>  Editar Paciente</button>
+                                        <button id="remove_therapist" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaldownloadlisttherapist"  disabled><i class="fas fa-user-times"></i>  Eliminar Terapeuta</button>
                                     </div>
                                     <br> 
                         </div>
