@@ -249,12 +249,8 @@
                             </div> 
                             
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade " id="patients" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="tab-pane fade show active" id="patients" role="tabpanel" aria-labelledby="profile-tab">
                                 <br>
-                                <div id="toolbar" style="text-align: center;">
-                                    <button id="edit_patient" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaleditpatient" ><i class="fas fa-edit"></i>  Editar Paciente</button>
-                                </div>
-                                <br> 
                                 <div class="table-responsive ">
                                         <style>
                                             .table.dataTable  {
@@ -285,7 +281,11 @@
                                             </thead>
                                         </table>
                                 </div> 
-                                
+                                <br>
+                                <div id="toolbar" style="text-align: center;">
+                                    <button id="edit_patient" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaleditpatient" disabled ><i class="fas fa-edit"></i>  Editar Paciente</button>
+                                </div>
+                                <br> 
                             </div>                           
                         </div>
                 </div>
