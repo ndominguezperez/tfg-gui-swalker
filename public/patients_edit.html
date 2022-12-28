@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/cloudflareAjaxBaguetteboxbaguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
     <link rel="stylesheet" href="assets/css/stackpathBootstrapcdnBootstrap450Bootstrap.min.css">
-  
+
     <!--JQUERY-->
     <script src="assets/js/jquery-321.min.js"></script>
     <script
@@ -44,35 +44,35 @@
 
     <script src="assets/js/v5.15.1jsall.js" data-auto-replace-svg></script>
     <script src="assets/js/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      
-      <script src="assets/js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      
-      <!-- Los iconos tipo Solid de Fontawesome-->
-      <link rel="stylesheet"
-          href="assets/css/v508csssolid.css">
-      <script src="assets/js/v5.0.7jsall.js"></script>
-      <script src="socket.io/socket.io.js"></script>
-      <script src="users.js"></script>
-      
-      
-      <!-- DATA TABLE -->
-      <script src="assets/js/1-10-19jquery.dataTables.min.js"></script>
-      <script src="assets/js/1.10.19dataTables.bootstrap4.min.js"></script>
-      <link rel="stylesheet" href="assets/css/twitter-bootstrap4.1.1cssbootstrap.css">	
-      <link rel="stylesheet" href="assets/css/1.10.19cssdataTables.bootstrap4.min.css">
+    
+    <script src="assets/js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet"
+        href="assets/css/v508csssolid.css">
+    <script src="assets/js/v5.0.7jsall.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="users.js"></script>
+    
+    
+    <!-- DATA TABLE -->
+    <script src="assets/js/1-10-19jquery.dataTables.min.js"></script>
+    <script src="assets/js/1.10.19dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="assets/css/twitter-bootstrap4.1.1cssbootstrap.css">	
+    <link rel="stylesheet" href="assets/css/1.10.19cssdataTables.bootstrap4.min.css">
 
 
-      <link rel="stylesheet" href="assets/css/4.5.2cssbootstrap.min.css">
-     
-      <script src="assets/js/1.16.0umdpopper.min.js"></script>
-      <script src="assets/js/bootstrap4.5.2jsbootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/4.5.2cssbootstrap.min.css">
+    
+    <script src="assets/js/1.16.0umdpopper.min.js"></script>
+    <script src="assets/js/bootstrap4.5.2jsbootstrap.min.js"></script>
 
 
 </head>
 
 <body id="page-top">
-    
-     <!-- Start: side and top bars -->
+
+    <!-- Start: side and top bars -->
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
             <div class="container-fluid d-flex flex-column p-0">
@@ -113,7 +113,7 @@
                                 </div>
                             </li>
                         </ul>
-                     </div>
+                    </div>
                 </nav>
                 <div class="container-fluid">
                     <main class="page contact-us-page">
@@ -122,11 +122,11 @@
                                 <div class="block-heading">
                                 </div>
 
-                            <!--/////////////////////////////////////////////////  PATIENT ////////////////////////////////////////////////////////////////////////////////-->
+                                <!--/////////////////////////////////////////////////  PATIENT ////////////////////////////////////////////////////////////////////////////////-->
 
 
-                            <!-- Modal Edit Patient -->
-                            <div class="modal fade" id="modaleditpatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <!-- Modal Edit Patient -->
+                                <div class="modal fade" id="modaleditpatient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -246,74 +246,74 @@
                                     </div>
                                 </div>
                                 </div>
-                            </div> 
-
-                         <!-- TABS PARA LA NEVEGACION DE LAS DIFERENTES TABLAS-->
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#patients" role="tab" aria-controls="profile" aria-selected="false">Pacientes</a>
-                                </li>
-                            </ul>
-
-                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="patients" role="tabpanel" aria-labelledby="profile-tab">
-                                <br>
-                                <div class="table-responsive ">
-                                        <style>
-                                            .table.dataTable  {
-                                            font-family: Verdana, Geneva, Tahoma, sans-serif;
-                                            font-size: 13px;
-                                            }
-                                        </style>
-                                        <table id="patientsList" class="table table-bordered table-hover table-striped">
-                                            <thead class="thead-light">
-                                                <tr>
-                                                    <th>
-                                                        <input type="checkbox" />
-                                                    </th>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Nombre</th>
-                                                    <th scope="col">Apellido</th>
-                                                    <th scope="col">Edad</th>
-                                                    <th scope="col">Sexo</th>
-                                                    <th scope="col">Peso</th>
-                                                    <th scope="col">Altura</th>
-                                                    <th scope="col">Longitud de Pierna</th>
-                                                    <th scope="col">ROM Activo Maximo</th>
-                                                    <th scope="col">Cadera Afectada</th>
-                                                    <th scope="col">Tipo de Cirujía</th>
-                                                    <th scope="col">Estado Cognitivo</th>
-                                                    <th scope="col">Estado Físico</th>
-                                                </tr>
-                                            </thead>
-                                        </table>
                                 </div> 
-                                <br>
-                                <div id="toolbar" style="text-align: center;">
-                                    <button id="edit_patient" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaleditpatient" disabled ><i class="fas fa-edit"></i>  Editar Paciente</button>
+
+                                <!-- TABS PARA LA NEVEGACION DE LAS DIFERENTES TABLAS-->
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#patients" role="tab" aria-controls="profile" aria-selected="false">Pacientes</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="patients" role="tabpanel" aria-labelledby="profile-tab">
+                                        <br>
+                                        <div class="table-responsive ">
+                                            <style>
+                                                .table.dataTable  {
+                                                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                                                font-size: 13px;
+                                                }
+                                            </style>
+                                            <table id="patientsList" class="table table-bordered table-hover table-striped">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th>
+                                                            <input type="checkbox" />
+                                                        </th>
+                                                        <th scope="col">ID</th>
+                                                        <th scope="col">Nombre</th>
+                                                        <th scope="col">Apellido</th>
+                                                        <th scope="col">Edad</th>
+                                                        <th scope="col">Sexo</th>
+                                                        <th scope="col">Peso</th>
+                                                        <th scope="col">Altura</th>
+                                                        <th scope="col">Longitud de Pierna</th>
+                                                        <th scope="col">ROM Activo Maximo</th>
+                                                        <th scope="col">Cadera Afectada</th>
+                                                        <th scope="col">Tipo de Cirujía</th>
+                                                        <th scope="col">Estado Cognitivo</th>
+                                                        <th scope="col">Estado Físico</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div> 
+                                        <br>
+                                        <div id="toolbar" style="text-align: center;">
+                                            <button id="edit_patient" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#modaleditpatient" disabled ><i class="fas fa-edit"></i>  Editar Paciente</button>
+                                        </div>
+                                        <br> 
+                                    </div>                       
                                 </div>
-                                <br> 
-                            </div>                       
-                        </div>
+                            </div>
+                        </section>
+                    </main>
                 </div>
-            </section>
-        </main>
-    </div>
-    </div>
-    <!-- End: Chart -->
-        <footer class="bg-white sticky-footer">
-            <div class="container my-auto">
-                <div class="text-center my-auto copyright"><span>Copyright © SWalker 2021</span></div>
             </div>
-        </footer>
-</div>
-<a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-</div>
-        <script src="assets/js/cdnjscloudflareAjaxLibsChartjs280Chart.bundle.min.js"></script>
-        <script src="assets/js/script.min.js?h=9af5f655239f5ce4fa692ca1c1513d50"></script>
-        <script src="assets/js/theme.js"></script>
-        <script src="socket.io/socket.io.js"></script>
-        <script src="therapy_settings.js"></script>
+            <!-- End: Chart -->
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © SWalker 2021</span></div>
+                </div>
+            </footer>
+        </div>
+        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="assets/js/cdnjscloudflareAjaxLibsChartjs280Chart.bundle.min.js"></script>
+    <script src="assets/js/script.min.js?h=9af5f655239f5ce4fa692ca1c1513d50"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="therapy_settings.js"></script>
 </body>
 
 </html>
