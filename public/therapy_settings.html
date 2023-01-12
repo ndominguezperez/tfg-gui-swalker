@@ -119,12 +119,10 @@
                         </ul>
                      </div>
                 </nav>  
-
-                
                 
                 <!-- Start: General Therapy settings -->
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-4">&nbsp;Configuración de Terapia</h3>
+                    <h2 class="text-dark mb-4 text-center ">&nbsp;Nueva Terapia</h2>
                     <div class="row mb-3">
                         <div class="col-lg-4">
                             <div class="card mb-3">
@@ -147,7 +145,7 @@
                                 <div class="col">
                                     <div class="card shadow">
                                         <div class="card-header py-3">
-                                            <h3 class="text-primary m-0 font-weight-bold">Información del Paciente</h3>
+                                            <h3 class="text-center text-dark mb-4">&nbsp;Informacion del paciente</h3>
                                         </div>
                                         <div class="card-body">
                                             <form>
@@ -168,17 +166,16 @@
                                                             <input class="form-control" onchange="this.value=this.value ? Math.max(Math.min(this.value,80),0) : null" min="0" max="80" id="weight" type="number" placeholder="Peso" disabled>
                                                         </div>
                                                     </div>
-                                                    
-                                                </div>
-                                                <div class="form-row">
                                                     <div class="col">
                                                         <div class="form-group">
                                                             <label for="leg_length">
-                                                                <h4>Longitud de la pierna (cm)</h4>
+                                                                <h4>Longitud pierna (cm)</h4>
                                                             </label>
                                                             <input class="form-control"  type="number"  onchange="this.value=this.value ? Math.max(Math.min(this.value,90),0) : null" min="0" max="90" id="leg_length"placeholder="Longitud de pierna" disabled>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="form-row">
                                                     <div class="col">
                                                         <div class="form-group">
                                                             <label for="hip joint">
@@ -192,9 +189,6 @@
                                                             </select>                                                        
                                                         </div>
                                                     </div>
-                                                    
-                                                </div>
-                                                <div class="form-row">
                                                     <div class="col">
                                                         <div class="form-group">
                                                             <label for="observations">
@@ -204,6 +198,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="form-row">
                                                     <div class="col">
                                                         <div class="form-group">
